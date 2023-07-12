@@ -1,0 +1,20 @@
+type Query {
+  items: [Item!]!
+  item: Item!
+}
+
+type Item {
+  id: ID!
+  type: String
+  sizes: [ItemSize!]!
+}
+
+type ItemSize {
+  id: ID!
+  item: Item!
+  price: Float
+  size: String
+  photo: String
+  created_at: String
+  updated_at: String
+}
