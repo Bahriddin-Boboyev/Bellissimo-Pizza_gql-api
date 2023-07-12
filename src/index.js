@@ -11,11 +11,11 @@ app.use(express.json());
 app.use(cors());
 
 const { server, serverMiddleware } = buildGraphQLServer(httpServer);
-
-app.use("/gql", serverMiddleware);
 await server.start();
 
+app.use("/gql", serverMiddleware());
+
 const PORT = config.PORT || 8080;
-httpServer.listen(PORT, () => {
+httpServer.listen(PORT, (req) => {
   console.log(`http://localhost:${PORT}`);
 });

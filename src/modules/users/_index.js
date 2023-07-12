@@ -31,9 +31,7 @@ const resolvers = {
   Mutation: {
     createUser: async (_, args) => {
       const result = await addUser(args.input);
-
       pubsub.publish("USER_CREATED", { userCreated: result });
-
       return result;
     },
     updateUser: (_, args, contextValue) => {
@@ -41,7 +39,6 @@ const resolvers = {
       if (contextValue.user.id !== args.id) {
         throw new Error("Forbidden");
       }
-
       return editUser({ id: args.id, ...args.input });
     },
     removeUser: (_, args) => {

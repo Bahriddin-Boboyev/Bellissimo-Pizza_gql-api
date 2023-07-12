@@ -17,7 +17,8 @@ type Subscription {
 
 type User {
   id: ID!
-  name: String
+  first_name: String
+  last_name: String
   username: String
 }
 
@@ -26,13 +27,15 @@ type Login {
 }
 
 input CreateUserInput {
-  name: String!
+  first_name: String
+  last_name: String
   username: String!
   password: String!
 }
 
 input UpdateUserInput {
-  name: String
+  first_name: String
+  last_name: String
   username: String
   password: String
 }
