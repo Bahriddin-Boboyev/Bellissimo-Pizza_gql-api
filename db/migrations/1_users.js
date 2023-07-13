@@ -9,6 +9,7 @@ export const up = function (knex) {
     table.string("last_name", 50).notNullable();
     table.string("username", 25).notNullable().unique();
     table.string("password", 300).notNullable();
+    table.boolean("is_deleted").defaultTo(false);
     table.timestamps(true, true);
   });
 };
